@@ -4,9 +4,6 @@ name: Payment Service CI
 on:
   pull_request:
     branches: [main]
-    paths:
-      - 'payment-service/**'
-      - '.github/workflows/payment-ci.yml'
 
 jobs:
   build-and-test:
