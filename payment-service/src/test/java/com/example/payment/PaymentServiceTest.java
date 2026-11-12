@@ -44,15 +44,5 @@ class PaymentServiceTest {
         );
     }
 
-    @Test
-    void shouldFailIntentionally() {
-        BigDecimal fee = paymentService.calculateFee(
-                new BigDecimal("100")
-        );
 
-        assertEquals(
-                0,
-                new BigDecimal("999").compareTo(fee)
-        );
-    }
 }

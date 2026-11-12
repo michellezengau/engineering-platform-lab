@@ -1,0 +1,17 @@
+
+name: Payment Service CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    permissions:
+      contents: read
+
+    uses: ./.github/workflows/reusable-java-ci.yml
+
+    with:
+      working-directory: payment-service
+      java-version: '21'
