@@ -35,4 +35,14 @@ class PaymentServiceTest {
 
         assertEquals("Invalid amount", exception.getMessage());
     }
+
+    @Test
+    void shouldRejectZeroAmount() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> paymentService.calculateFee(BigDecimal.ZERO)
+        );
+    }
+
+
 }
