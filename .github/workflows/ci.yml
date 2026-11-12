@@ -1,5 +1,5 @@
 
-name: Java CI
+name: Payment Service CI
 
 on:
   pull_request:
@@ -12,16 +12,21 @@ jobs:
     permissions:
       contents: read
 
+    defaults:
+      run:
+        working-directory: payment-service
+
     steps:
-      - name: Checkout source code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Java 21
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
           cache: maven
+          cache-dependency-path: payment-service/pom.xml
 
       - name: Build and test
         run: mvn --batch-mode clean verify
